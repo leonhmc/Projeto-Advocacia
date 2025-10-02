@@ -3,12 +3,59 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Advocacia</title>
+        <title>Visão Jurídica - Página inicial</title>
 
-        {% comment %} Bootstrap 5 {% endcomment %}
+        <!-- Bootstrap 5 -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     </head>
-    <body>
-        dihiuwhiu
+    <body style="background-color: #d0d0d0;">
+        
+        <!-- Cabeçalho -->
+        <div class="bg-danger p-2">
+            <h2 class="text-start text-light">Visão Jurídica</h2>
+        </div>
+
+        <!-- Conteúdo principal -->
+        <div class="container mt-5">
+            <div class="bg-white">
+                <h3 class="bg-dark text-white text-center">Registro, consulta e edição:</h3>
+                <p class="text-dark ms-1">Utilize já o sistema para cumprir seus deveres de maneira mais prática.</p>
+                <a href="/advogados/criar" class="btn btn-dark ms-1 mb-1">Verificar</a>
+            </div>
+        </div>
+
+        <div class="container mt-4">
+            <div class="bg-white">
+                <h3 class="bg-dark text-white text-center">Tabela</h3>
+
+                <table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse;">
+                    <tr>
+                        <td colspan="8" style="text-align: center;">Lista de Advogados</td>
+                    </tr>
+        
+                    <tr>
+                        <th>#</th>
+                        <th>Nome</th>
+                        <th>Especialidade</th>
+                        <th>Telefone</th>
+                        <th>Registro da OAB</th>
+                        <th colspan="2">Ações</th>
+                    </tr>
+        
+                    <tr th:each="advogado : ${advogados}">
+                        <td th:text="${advogado.idAdvogado}"></td>
+                        <td th:text="${advogado.nomeAdvogado}"></td>
+                        <td th:text="${advogado.especialidadeAdvogado}"></td>
+                        <td th:text="${advogado.telefoneAdvogado}"></td>
+                        <td th:text="${advogado.oabAdvogado}"></td>
+                        <td>
+                            <a th:href="@{/advogados/editar/{id}(id=${advogado.idAdvogado})}">Editar</a>
+                            <a th:href="@{/advogados/excluir/{id}(id=${advogado.idAdvogado})}">Excluir</a>
+                        </td>
+                    </tr>
+                </table> <br>
+            </div>
+        </div>
+
     </body>
 </html>

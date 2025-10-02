@@ -27,7 +27,7 @@ public class AdvogadoController {
     @PostMapping("/salvar")
     public String salvar(@ModelAttribute Advogado advogado) {
         advogadoService.save(advogado);
-        return "redirect:/advogados/listar";
+        return "redirect:/index.html";
     }
     
     // Método para listar todos os advogados

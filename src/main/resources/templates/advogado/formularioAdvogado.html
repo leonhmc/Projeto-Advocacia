@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" contesnt="width=device-width, initial-scale=1.0">
+    <title>Visão Jurídica - Registro, consulta e edição </title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">  
+</head>
+<body style="background-color: #e9e9e9;">
+    
+    <!-- Cabeçalho -->
+    <div class="bg-danger p-2">
+        <h2 class="text-start text-light">Visão Jurídica</h2>
+    </div>
+
+    <!-- Conteúdo -->
+    <div class="container">
+        <div class="bg-light mt-5">
+            <h3 class="bg-dark text-white">Registro, consulta e edição:</h3>
+        
+            <form th:action="@{/advogados/salvar}" method="post" th:object="${advogado}">
+
+                <input type="hidden" name="idAdvogado" th:field="*{idAdvogado}" />
+                
+                <label for="nomeAdvogado">Nome:</label>
+                <input type="text" name="nomeAdvogado" th:field="*{nomeAdvogado}" />
+                <br>
+
+                <label for="telefoneAdvogado">Telefone:</label>
+                <input type="text" name="telefoneAdvogado" th:field="*{telefoneAdvogado}" />
+                <br>
+
+                <label for="especialidadeAdvogado">Especialidade:</label>
+                <input type="text" name="especialidadeAdvogado" th:field="*{especialidadeAdvogado}" />
+                <br>
+
+                <label for="oabAdvogado">Registro da OAB:</label>
+                <input type="text" name="oabAdvogado" th:field="*{oabAdvogado}" />
+                <br><br>
+
+                <button class="btn btn-dark" type="submit">Salvar</button>
+
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
